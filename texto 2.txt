@@ -1,0 +1,36 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+button {
+    background-color: #fff;
+    color: #ff5588;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ffddf0;
+}
+.question {
+    margin: 20px 0;
+}
+.options button {
+    display: block;
+    margin: 10px auto;
+}

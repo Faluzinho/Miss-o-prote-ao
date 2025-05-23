@@ -1,0 +1,58 @@
+const questions = [
+    {
+        question: "Qual método previne tanto gravidez quanto ISTs?",
+        options: ["Anticoncepcional", "Camisinha", "Pílula do dia seguinte", "DIU"],
+        answer: 1
+    },
+    {
+        question: "Verdadeiro ou falso: Você pode contrair uma IST mesmo sem ter penetração.",
+        options: ["Verdadeiro", "Falso"],
+        answer: 0
+    },
+    {
+        question: "João vai ter sua primeira relação sexual. Ele não tem certeza se deve usar camisinha porque confia em sua parceira. O que ele deve fazer?",
+        options: [
+            "Confiar e não usar, pois é a primeira vez dos dois",
+            "Conversar com ela sobre proteção e usar camisinha",
+            "Usar só se ela insistir",
+            "Beber para relaxar antes e decidir depois"
+        ],
+        answer: 1
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function startGame() {
+    currentQuestion = 0;
+    score = 0;
+    document.getElementById("score").innerText = "";
+    showQuestion();
+}
+
+function showQuestion() {
+    if (currentQuestion >= questions.length) {
+        document.getElementById("game-area").innerHTML = "<h2>Fim de Jogo!</h2><p>Sua pontuação: " + score + "</p>";
+        return;
+    }
+    const q = questions[currentQuestion];
+    let html = "<div class='question'><h2>" + q.question + "</h2></div><div class='options'>";
+    q.options.forEach((opt, index) => {
+        html += "<button onclick='checkAnswer(" + index + ")'>" + opt + "</button>";
+    });
+    html += "</div>";
+    document.getElementById("game-area").innerHTML = html;
+}
+
+function checkAnswer(selected) {
+    const correct = questions[currentQuestion].answer;
+    if (selected === correct) {
+        score += 10;
+        alert("Correto!");
+    } else {
+        alert("Incorreto. A resposta certa era: " + questions[currentQuestion].options[correct]);
+    }
+    currentQuestion++;
+    showQuestion();
+}
